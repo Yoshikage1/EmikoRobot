@@ -93,7 +93,7 @@ PM_START_TEXT = """
 
 buttons = [
     [
-        InlineKeyboardButton(text="My Headquarters", callback data="https://t.me/HashiraXHeadquarters"),
+        InlineKeyboardButton(text=f"About {dispatcher.bot.first_name}", callback_data="emiko_"),
     ],
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
