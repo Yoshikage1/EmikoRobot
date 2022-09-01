@@ -98,7 +98,7 @@ buttons = [
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
         InlineKeyboardButton(
-            text="O W N E R", "https://t.me/flamexmonster"
+            text="Try inline!​​", switch_inline_query_current_chat=""
         ),
     ],
     [
