@@ -9,7 +9,7 @@ from EmikoRobot.events import register
 from EmikoRobot import telethn as tbot
 
 
-PHOTO = "https://telegra.ph/file/c498519960775bf71d970.jpg"
+PHOTO = "https://telegra.ph/file/a93dd35a2702bc1f88926.jpg"
 
 @register(pattern=("/alive"))
 async def awake(event):
@@ -18,7 +18,7 @@ async def awake(event):
   TEXT += f"⚪ **My Master : [A R C H I S M A N](https://t.me/flamexmonster)** \n\n"
   TEXT += f"⚪ **Library Version :** `{telever}` \n\n"
   TEXT += f"⚪ **Telethon Version :** `{tlhver}` \n\n"
-  TEXT += f"⚪ **Pyrogram Version :** `{pyrover}` \n\n"
+  TEXT += f"⚪ **Pyrogram Version :** `{pyrover}` \n\n 
   TEXT += "**Thanks For Adding Me Here ❤️**"
-  BUTTON = [[Button.url("Help", "https://t.me/sanemirobot?start=help"), Button.url("Support", "https://t.me/SanemiSupport")]]
+  BUTTON = [[Button.url("Help", "https://t.me/MaiSakurajimaxBot?start=help"), Button.url("My Headquarters", "https://t.me/HashiraXHeadquarters")]]
   await tbot.send_file(event.chat_id, PHOTO, caption=TEXT,  buttons=BUTTON)
