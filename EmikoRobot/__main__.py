@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm Mai sakurajima an anime-theme management bot [✨](https://telegra.ph/file/e80abd79f6f2074889c07.jpg)
+✪ I'm Mai sakurajima an anime-theme management bot [💛](https://telegra.ph/file/e80abd79f6f2074889c07.jpg)
 ────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
@@ -103,7 +103,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add Me To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
+            text="❤️ Add Me To Your Group ❤️", url=f"t.me/{bu}?startgroup=new"),
     ],
 ]
 
@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"https://telegra.ph/file/c9b63d02f3947e4cf690c.png",
+            f"Hey there,{} I am Mai Sakurajima. Thank You For adding me in the group. I hope that i will be able to manage it beautifully",
             parse_mode=ParseMode.HTML
        )
 
