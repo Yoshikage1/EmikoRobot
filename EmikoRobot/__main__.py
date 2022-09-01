@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"Hey there,{} I am Mai Sakurajima. Thank You For adding me in the group. I hope that i will be able to manage it beautifully",
+            f"👋 Hi, I'm {dispatcher.bot.first_name}. Nice to meet You.",
             parse_mode=ParseMode.HTML
        )
 
