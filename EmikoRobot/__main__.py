@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm an anime-theme management bot [✨](https://telegra.ph/file/11b5922a33de9968cedfe.jpg)
+✪ I'm Mai sakurajima an anime-theme management bot [✨](https://telegra.ph/file/e80abd79f6f2074889c07.jpg)
 ────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
@@ -98,7 +98,7 @@ buttons = [
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
         InlineKeyboardButton(
-            text="Try inline!​​", switch_inline_query_current_chat=""
+            text="O W N E R", "https://t.me/flamexmonster"
         ),
     ],
     [
@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"👋 Hi, I'm {dispatcher.bot.first_name}. Nice to meet You.",
+            f"https://telegra.ph/file/c9b63d02f3947e4cf690c.png",
             parse_mode=ParseMode.HTML
        )
 
@@ -379,7 +379,7 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="Notes", callback_data="emiko_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="Support", callback_data="emiko_support"),
+                    InlineKeyboardButton(text="Support", callback_data="HashiraXHeadquarters"),
                     InlineKeyboardButton(text="Credits", callback_data="emiko_credit"),
                  ],
                  [
@@ -428,8 +428,8 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/emikosupport"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/KennedyProject"),
+                    InlineKeyboardButton(text="Support", url="t.me/HashiraXHeadquarters"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/Hashira_Association"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
