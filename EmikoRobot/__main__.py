@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"HEY, I am Mai, nice to meet you.❤️(https://telegra.ph/file/cbcf18b32f041b0dd93c8.mp4).[My HQ](https://t.me/HashiraXHeadquarters)",
+            f"[HEY, I am Mai, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters](https://telegra.ph/file/cbcf18b32f041b0dd93c8.mp4)",
             parse_mode=ParseMode.HTML
        )
 
