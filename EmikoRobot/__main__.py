@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"CAACAgUAAx0EXFOX-QABAoILYxHQWBxERr9zAVi646Mg0t2pKiQAAkcFAAJf65BUZmw-Eoumo9kpBA",
+            f"HEY, I am Mai, nice to meet you.❤️",
             parse_mode=ParseMode.HTML
        )
 
@@ -448,24 +448,24 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="", url=""),
-                    InlineKeyboardButton(text="", url=""),
+                    InlineKeyboardButton(text="ENCHANTED", url="https://t.me/alphalegalyinc"),
+                    InlineKeyboardButton(text="KANAO", url="https://t.me/kanaoxhashira_void"),
                  ],
                  [
-                    InlineKeyboardButton(text="F L A M E ", url="https://t.me/flamexmonster"),
+                    InlineKeyboardButton(text="ARCHISMAN", url="https://t.me/flamexmonster"),
                     InlineKeyboardButton(text="VoidAryan", url="https://github.com/Voidxtoxic"),
                  ],
                  [
                     InlineKeyboardButton(text="Water Hashira", url="https://t.me/omegaflower"),
-                    InlineKeyboardButton(text="A R C H I S M A N", url="https://github.com/orofet-xt"),
+                    InlineKeyboardButton(text="O R O F E R", url="https://github.com/orofet-xt"),
                  ],
                  [
                     InlineKeyboardButton(text="V O I D", url="https://t.me/VoidxNetwork"),
                     InlineKeyboardButton(text="H A S H I R A", url="https://t.me/Hashira_Association"),
                  ],
                  [
-                    InlineKeyboardButton(text="", url=""),
-                    InlineKeyboardButton(text="", url=""),
+                    InlineKeyboardButton(text="ALONE", url="https://t.me/RicksxToxic"),
+                    InlineKeyboardButton(text="FLAME", url="https://t.me/FlamexToxic"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
