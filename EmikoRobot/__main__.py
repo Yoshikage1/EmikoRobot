@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"HEY, I am Victor, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters.Hope that i will be able to manage your group perfectly. Queries about me? join @LVictor_Nikiforov_Support",
+            f"HEY, I am Victor, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters.Hope that i will be able to manage your group perfectly. Queries about me? join @Victor_Nikiforov_Support",
             parse_mode=ParseMode.HTML
        )
 
@@ -452,7 +452,7 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="KANAO", url="https://t.me/kanaoxhashira_void"),
                  ],
                  [
-                    InlineKeyboardButton(text="ARCHISMAN", url="https://t.me/flamexmonster"),
+                    InlineKeyboardButton(text="ARCHISMAN", url="https://t.me/ImpostorxToxic"),
                     InlineKeyboardButton(text="VoidAryan", url="https://github.com/Voidxtoxic"),
                  ],
                  [
@@ -786,7 +786,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@Victor_Nikiforov_Support", 
-                "👋 Hi, i'm alive.",
+                  "👋 Hi, I am awake and working properly. Thank You for having me in the group",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
