@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hello {} !*
-✪ I'm Mai sakurajima an anime-theme management bot [💛](https://telegra.ph/file/cbcf18b32f041b0dd93c8.mp4)
+✪ I'm Victor Nikiforov. An anime-theme management bot [💛](https://telegra.ph/file/74bdee8217523e292ab02.jpg)
 ────────────────────────
 × *Uptime:* `{}`
 × `{}` *users, across* `{}` *chats.*
@@ -98,7 +98,7 @@ buttons = [
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
         InlineKeyboardButton(
-            text="R E P O R T  B U G S", url=f"t.me/HashiraXHeadquarters"
+            text="Report  Bugs", url=f"t.me/VIctor_Nikiforov_Support"
         ),
     ],
     [
@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"HEY, I am Mai, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters.Hope that i will be able to manage your group perfectly. Queries about me? join @LisaXSupport",
+            f"HEY, I am Victor, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters.Hope that i will be able to manage your group perfectly. Queries about me? join @LVictor_Nikiforov_Support",
             parse_mode=ParseMode.HTML
        )
 
@@ -379,11 +379,11 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="Notes", callback_data="emiko_notes"),
                  ],
                  [
-                    InlineKeyboardButton(text="Support", callback_data="HashiraXHeadquarters"),
+                    InlineKeyboardButton(text="Support", callback_data="Victor_Nikiforov_Support"),
                     InlineKeyboardButton(text="Credits", callback_data="emiko_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/kennedy-ex/EmikoRobot"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/orofer-xt/EmikoRobot"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="source_back"),
@@ -428,8 +428,8 @@ def emiko_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Support", url="t.me/HashiraXHeadquarters"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/Hashira_Association"),
+                    InlineKeyboardButton(text="Support", url="t.me/Victor_Nikiforov_Support"),
+                    InlineKeyboardButton(text="Updates", url="https://t.me/Victor_Updates"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
@@ -737,7 +737,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1866066766:
+        if OWNER_ID != 1340034689:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
@@ -785,7 +785,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@{SUPPORT_CHAT}", 
+                f"@Victor_Nikiforov_Support", 
                 "👋 Hi, i'm alive.",
                 parse_mode=ParseMode.MARKDOWN
             )
