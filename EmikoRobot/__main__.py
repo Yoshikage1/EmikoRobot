@@ -230,7 +230,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"HEY, I am Victor, nice to meet you.❤️.My HQ is at @HashiraXHeadquarters.Hope that i will be able to manage your group perfectly. Queries about me? join @Victor_Nikiforov_Support",
+            f"[HEY, I am Victor, thank you for having me in your group 💙 ](https://telegra.ph/file/96e10981a7989000b347e.jpg)",
             parse_mode=ParseMode.HTML
        )
 
