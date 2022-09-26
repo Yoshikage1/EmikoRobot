@@ -81,6 +81,8 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
+GROUP_START_IMG = "https://telegra.ph/file/96e10981a7989000b347e.jpg"
+
 PM_START_TEXT = """
 *Hello {} !*
 ✪ I'm Victor Nikiforov. An anime-theme management bot [💛](https://telegra.ph/file/bde59c4e786d5f06d7b0e.mp4)
@@ -229,10 +231,22 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_text(
-            f"[HEY, I am Victor, thank you for having me in your group 💙 ](https://telegra.ph/file/96e10981a7989000b347e.jpg)",
-            parse_mode=ParseMode.HTML
-       )
+        update.effective_message.reply_animation(
+            GROUP_START_IMG,
+            caption="<code> Hey there I am with you Since</code>: <code>{}</code>".format(
+                uptime
+            ),
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="【Support】", url="https://t.me/Victor_Nikiforov_Support"
+                        ),
+                    ],
+                ]
+            ),
+        )
 
 
 def error_handler(update, context):
