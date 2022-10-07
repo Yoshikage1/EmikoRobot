@@ -105,7 +105,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="❤️ Add Me To Your Group ❤️", url=f"t.me/{bu}?startgroup=new"),
+            text="❤️ Add Me To Your Group ❤️", url=f"t.me/Victor_Nikiforov_Robot?startgroup=new"),
     ],
 ]
 
@@ -800,7 +800,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@Victor_Nikiforov_Support", 
-                  "👋 Hi, I am awake and working properly. Thank You for having me in the group",
+                  "👋 Hi, I am awake and working properly. Thank You for having me in the group.",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
