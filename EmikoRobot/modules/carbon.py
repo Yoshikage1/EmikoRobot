@@ -38,8 +38,7 @@ async def repo(_, message):
 **Telethon Version :** `{s}`
 **Pyrogram Version :** `{z}`
 ** My collaborators**
-** 1 [𝐅𝐥𝐚𝐦𝐞 ✗ℋ𝐚𝐬𝐡𝐢𝐫𝐚 『ARCANE』 • ᴢᴇxᴛ™](https://t.me/ricks_2005)**
-
+** 1) [𝐅𝐥𝐚𝐦𝐞 ✗ℋ𝐚𝐬𝐡𝐢𝐫𝐚 『ARCANE』 • ᴢᴇxᴛ™](https://t.me/ricks_2005)**
 
 **Sorry but the repo is not available.**
 """,
