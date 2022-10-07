@@ -800,15 +800,8 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@Victor_Nikiforov_Support", 
-                  "👋 Hi, I am awake and working properly. Thank You for having me in the group.If you want to know more about me then join at my Hq",
+                  "👋 Hi, I am awake and working properly. Thank You for having me in the group.If you want to know more about me then join at my Hq at @HashiraXHeadquarters",
                 parse_mode=ParseMode.MARKDOWN
-                reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Support", url="t.me/Victor_Nikiforov_Support"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/Victor_Updates"),
-                 ],
-                 [
             )
         except Unauthorized:
             LOGGER.warning(
