@@ -466,7 +466,7 @@ def emiko_about_callback(update, context):
                     InlineKeyboardButton(text="KANAO", url="https://t.me/kanaoxhashira_void"),
                  ],
                  [
-                    InlineKeyboardButton(text="ARCHISMAN", url="https://t.me/ImpostorxToxic"),
+                    InlineKeyboardButton(text="FLAME-1", url="https://t.me/ricks_2005"),
                     InlineKeyboardButton(text="VoidAryan", url="https://github.com/Voidxtoxic"),
                  ],
                  [
@@ -479,7 +479,7 @@ def emiko_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="ALONE", url="https://t.me/RicksxToxic"),
-                    InlineKeyboardButton(text="FLAME", url="https://t.me/FlamexToxic"),
+                    InlineKeyboardButton(text="FLAME-2", url="https://t.me/FlamexToxic"),
                  ],
                  [
                     InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
