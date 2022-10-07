@@ -37,8 +37,11 @@ async def repo(_, message):
 **Library Version :** `{o}`
 **Telethon Version :** `{s}`
 **Pyrogram Version :** `{z}`
+** My collaborators**
+** 1 [𝐅𝐥𝐚𝐦𝐞 ✗ℋ𝐚𝐬𝐡𝐢𝐫𝐚 『ARCANE』 • ᴢᴇxᴛ™](https://t.me/ricks_2005)**
 
-**sorry but the repo is not available bro.**
+
+**Sorry but the repo is not available.**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
