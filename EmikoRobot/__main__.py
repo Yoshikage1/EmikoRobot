@@ -6,12 +6,12 @@ import time
 import re
 import sys
 import traceback
-import horisan.modules.sql.users_sql as sql
+import EmikoRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
 from platform import python_version as memek
-from horisan import (
+from EmikoRobot import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -33,9 +33,9 @@ from horisan import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from horisan.modules import ALL_MODULES
-from horisan.modules.helper_funcs.chat_status import is_user_admin
-from horisan.modules.helper_funcs.misc import paginate_modules
+from EmikoRobot.modules import ALL_MODULES
+from EmikoRobot.modules.helper_funcs.chat_status import is_user_admin
+from EmikoRobot.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -97,7 +97,7 @@ PM_START_TEXT = """
 buttons = [
     [
         InlineKeyboardButton(
-            text="【Aᴅᴅ Kʏᴏᴜᴋᴏ Tᴏ Yᴏᴜʀ GC】",
+            text="【Aᴅᴅ Victor Tᴏ Yᴏᴜʀ GC】",
             url="https://t.me/Victor_Nikiforov_Robot?startgroup=new",
         ),
     ],
