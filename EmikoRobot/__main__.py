@@ -796,7 +796,7 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@Victor_Nikiforov_Support,
+                f"@Victor_Nikiforov_Support",
                 "[👋](https://telegra.ph/file/1ede1936edeb8ba2efab9.jpg) Hi weebs, [Victor](t.me/Victor_Nikiforov_Robot) is back alive.",
                 parse_mode=ParseMode.MARKDOWN,
             )
