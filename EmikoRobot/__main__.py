@@ -467,7 +467,7 @@ def hori_about_callback(update, context):
 
     elif query.data == "hori_credit":
         query.message.edit_text(
-            text=f"๏ Credis for Hori\n"
+            text=f"๏ Credis for victor\n"
             "\nHere Developers Making And Give Inspiration For Made The HoriRobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
