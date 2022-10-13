@@ -6,12 +6,12 @@ import time
 import re
 import sys
 import traceback
-import EmikoRobot.modules.sql.users_sql as sql
+import horisan.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
 from platform import python_version as memek
-from EmikoRobot import (
+from horisan import (
     ALLOW_EXCL,
     CERT_PATH,
     DONATION_LINK,
@@ -33,9 +33,9 @@ from EmikoRobot import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from EmikoRobot.modules import ALL_MODULES
-from EmikoRobot.modules.helper_funcs.chat_status import is_user_admin
-from EmikoRobot.modules.helper_funcs.misc import paginate_modules
+from horisan.modules import ALL_MODULES
+from horisan.modules.helper_funcs.chat_status import is_user_admin
+from horisan.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -84,38 +84,36 @@ def get_readable_time(seconds: int) -> str:
 GROUP_START_IMG = "https://telegra.ph/file/96e10981a7989000b347e.jpg"
 
 PM_START_TEXT = """
-*Hello {} !*
-✪ I'm Victor Nikiforov. An anime-theme management bot [💛](https://telegra.ph/file/bde59c4e786d5f06d7b0e.mp4)
-────────────────────────
-× *Uptime:* `{}`
-× `{}` *users, across* `{}` *chats.*
-────────────────────────
-✪ Hit /help to see my available commands.
+*ᴋᴏɴɪᴄʜɪᴡᴀ! {}!*
+۞ ɪᴍ ᴠɪᴄᴛᴏʀ 
+ᴀɴ ᴀɴɪᴍᴇ ʙᴀꜱᴇᴅ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ . [👋](https://telegra.ph/file/bde59c4e786d5f06d7b0e.mp4)
+───────────────────────
+× *Aʟɪᴠᴇ Sɪɴᴄᴇ:* {}
+× {} *Wᴇᴇʙꜱ, Aᴄʀᴏꜱꜱ* {} *Cʜᴀᴛꜱ*
+───────────────────────
+۞ ɪᴍ ʜᴇʀᴇ ᴛᴏ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢᴄ ᴍᴏʀᴇ ᴇꜰꜰɪᴄɪᴇɴᴛʟʏ!
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text=f"About {dispatcher.bot.first_name}", callback_data="emiko_"),
-    ],
-    [
-        InlineKeyboardButton(text="Get Help", callback_data="help_back"),
         InlineKeyboardButton(
-            text="Report  Bugs", url=f"t.me/VIctor_Nikiforov_Support"
+            text="【Aᴅᴅ Kʏᴏᴜᴋᴏ Tᴏ Yᴏᴜʀ GC】",
+            url="https://t.me/Victor_Nikiforov_Robot?startgroup=new",
         ),
     ],
     [
-        InlineKeyboardButton(
-            text="❤️ Add Me To Your Group ❤️", url=f"t.me/Victor_Nikiforov_Robot?startgroup=new"),
+        InlineKeyboardButton(text="【HELP】", callback_data="help_back"),
+        InlineKeyboardButton(text="【Support】", url="https://t.me/Victor_Nikiforov_Support"),
     ],
 ]
 
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+[Click on the buttons bellow to get description of hori's commands!](https://telegra.ph/file/bde59c4e786d5f06d7b0e.mp4)"""
 
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @Ricks_2005 \
+ You can support the project by contacting flame \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -130,7 +128,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("EmikoRobot.modules." + module_name)
+    imported_module = importlib.import_module("horisan.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -218,7 +216,6 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            uptime = get_readable_time((time.time() - StartTime))
             update.effective_message.reply_text(
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
@@ -230,6 +227,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
                 disable_web_page_preview=False,
             )
+              
     else:
         update.effective_message.reply_animation(
             GROUP_START_IMG,
@@ -306,7 +304,6 @@ def error_callback(update: Update, context: CallbackContext):
         print(error)
         # handle all other telegram related errors
 
-
 def help_button(update, context):
     query = update.callback_query
     mod_match = re.match(r"help_module\((.+?)\)", query.data)
@@ -330,7 +327,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="【Hᴇʟᴘ Mᴇɴᴜ】", callback_data="help_back")]]
                 ),
             )
 
@@ -361,8 +358,8 @@ def help_button(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
                 ),
-            )
-
+            )   
+            
         # ensure no spinny white circle
         context.bot.answer_callback_query(query.id)
         # query.message.delete()
@@ -370,46 +367,60 @@ def help_button(update, context):
     except BadRequest:
         pass
 
-
-def emiko_about_callback(update, context):
+def hori_about_callback(update, context):
     query = update.callback_query
-    if query.data == "emiko_":
+    if query.data == "hori_":
         query.message.edit_text(
-            text=f"๏ I'm *{dispatcher.bot.first_name}*, a powerful group management bot built to help you manage your group easily."
+            text="๏ I'm *victor*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
             "\n• I can greet users with customizable welcome messages and even set a group's rules."
             "\n• I have an advanced anti-flood system."
             "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
             "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
             "\n• I check for admins' permissions before executing any command and more stuffs"
-            f"\n\n_{dispatcher.bot.first_name}'s licensed under the GNU General Public License v3.0_"
-            f"\n\n Click on button bellow to get basic help for {dispatcher.bot.first_name}.",
+            "\n\n_Victor's licensed under the GNU General Public License v3.0_"
+            "\n\n Click on button bellow to get basic help for me.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Admins", callback_data="emiko_admin"),
-                    InlineKeyboardButton(text="Notes", callback_data="emiko_notes"),
+                    InlineKeyboardButton(text="Network", url="https://t.me/Hashira_Association"),
+                    InlineKeyboardButton(text="Owner", url="https://t.me/omegaflower"),
                  ],
                  [
-                    InlineKeyboardButton(text="Support", callback_data="Victor_Nikiforov_Support"),
-                    InlineKeyboardButton(text="Credits", callback_data="emiko_credit"),
+                    InlineKeyboardButton(text="Support", url="https://t.me/Victor_Nikiforov_Support"),
+                    InlineKeyboardButton(text="Credits", url="https://t.me/ricks_2005"),
                  ],
                  [
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/orofer-xt/EmikoRobot"),
+                    InlineKeyboardButton(text="Source Code", url="https://github.com/orofer-xt/LalisaManobalRobot"),
                  ],
                  [
-                    InlineKeyboardButton(text="Go Back", callback_data="source_back"),
+                    InlineKeyboardButton(text="Go Back", callback_data="emiko_back"),
                  ]
                 ]
             ),
         )
+    elif query.data == "hori_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+            PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
+        )
 
-    elif query.data == "emiko_admin":
+    elif query.data == "hori_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            f"\nCongragulations, {dispatcher.bot.first_name} now ready to manage your group."
+            "\nCongragulations, bot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -419,11 +430,11 @@ def emiko_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="【Back】", callback_data="hori_")]]
             ),
         )
 
-    elif query.data == "emiko_notes":
+    elif query.data == "hori_notes":
         query.message.edit_text(
             text=f"<b>๏ Setting up notes</b>"
             f"\nYou can save message/media/audio or anything as notes"
@@ -431,62 +442,51 @@ def emiko_about_callback(update, context):
             f"\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="emiko_")]]
+                [[InlineKeyboardButton(text="【Back】", callback_data="hori_")]]
             ),
         )
-    elif query.data == "emiko_support":
+    elif query.data == "hori_support":
         query.message.edit_text(
-            text="*๏ Victor support chats*"
-            f"\nJoin My Support Group/Channel for see or report a problem on {dispatcher.bot.first_name}.",
+            text="*๏ Hori san support chats*"
+            "\nJoin My Support Group/Channel for see or report a problem on Hori.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="Support", url="t.me/Victor_Nikiforov_Support"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/Victor_Updates"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(text="Support", url="t.me/Victor_Nikiforov_Support"),
+                        InlineKeyboardButton(
+                            text="Updates", url="https://t.me/Victor_Nikiforov_Support"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="【Back】", callback_data="hori_"),
+                    ],
                 ]
             ),
         )
 
-
-    elif query.data == "emiko_credit":
+    elif query.data == "hori_credit":
         query.message.edit_text(
-            text=f"๏ Credis for {dispatcher.bot.first_name}\n"
-            f"\nHere Developers Making And Give Inspiration For Made The {dispatcher.bot.first_name}",
+            text=f"๏ Credis for Hori\n"
+            "\nHere Developers Making And Give Inspiration For Made The HoriRobot",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="ENCHANTED", url="https://t.me/AlphalegacyInc"),
-                    InlineKeyboardButton(text="KANAO", url="https://t.me/kanaoxhashira_void"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="FLAME-1", url="https://t.me/ricks_2005"),
-                    InlineKeyboardButton(text="VoidAryan", url="https://github.com/Voidxtoxic"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Water Hashira", url="https://t.me/omegaflower"),
-                    InlineKeyboardButton(text="O R O F E R", url="https://github.com/orofet-xt"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="V O I D", url="https://t.me/VoidxNetwork"),
-                    InlineKeyboardButton(text="H A S H I R A", url="https://t.me/Hashira_Association"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="ALONE", url="https://t.me/RicksxToxic"),
-                    InlineKeyboardButton(text="FLAME-2", url="https://t.me/FlamexToxic"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_"),
-                 ]
+                    [
+                        InlineKeyboardButton(
+                            text="FLAME", url="https://github.com/orofer-xt"
+                        ),
+                        InlineKeyboardButton(
+                            text="Flame (telegram)", url="https://t.me/ricks_2005"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="【Back】", callback_data="hori_"),
+                    ],
                 ]
             ),
         )
+
 
 def Source_about_callback(update, context):
     query = update.callback_query
@@ -506,27 +506,24 @@ def Source_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="emiko_")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="【Back】", callback_data="hori_")]]
             ),
         )
     elif query.data == "source_back":
         first_name = update.effective_user.first_name
-        uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
+
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -537,13 +534,13 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
+                f"BaKa contact me in PM to get help of {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text="Help",
-                                url="t.me/{}?start=ghelp_{}".format(
+                                text="【HELP】",
+                                url="t.me/Victor_Nikiforov_Robot?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
                             )
@@ -553,12 +550,12 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Baka Contact me in PM to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Help",
+                            text="【HELP】",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
@@ -579,7 +576,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="【Back】", callback_data="help_back")]]
             ),
         )
 
@@ -651,7 +648,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Go Back",
+                                text="【Back】",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -664,7 +661,7 @@ def settings_button(update: Update, context: CallbackContext):
             curr_page = int(prev_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "Hi baka! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -678,7 +675,7 @@ def settings_button(update: Update, context: CallbackContext):
             next_page = int(next_match.group(2))
             chat = bot.get_chat(chat_id)
             query.message.reply_text(
-                "Hi there! There are quite a few settings for {} - go ahead and pick what "
+                "Hi baka! There are quite a few settings for {} - go ahead and pick what "
                 "you're interested in.".format(chat.title),
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(
@@ -726,8 +723,8 @@ def get_settings(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Settings",
-                                url="t.me/{}?start=stngs_{}".format(
+                                text="【Settings】",
+                                url="t.me/Victor_Nikiforov_Robot?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
                             )
@@ -751,7 +748,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1340034689:
+        if OWNER_ID != 1606221784:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
@@ -799,9 +796,9 @@ def main():
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@Victor_Nikiforov_Support", 
-                  "👋 Hi, I am awake and working properly. Thank You for having me in the group.If you want to know more about me then join at my Hq at @HashiraXHeadquarters",
-                parse_mode=ParseMode.MARKDOWN
+                f"@Victor_Nikiforov_Support,
+                "[👋](https://telegra.ph/file/1ede1936edeb8ba2efab9.jpg) Hi weebs, [Victor](t.me/Victor_Nikiforov_Robot) is back alive.",
+                parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(
@@ -824,7 +821,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        emiko_about_callback, pattern=r"emiko_", run_async=True
+        hori_about_callback, pattern=r"hori_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
