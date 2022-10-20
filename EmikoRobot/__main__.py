@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 GROUP_START_IMG = "https://telegra.ph/file/96e10981a7989000b347e.jpg"
 
-PM_START_TEXT = "*ᴋᴏɴɪᴄʜɪᴡᴀ! {}!*\n۞ ɪᴍ ᴠɪᴄᴛᴏʀ \nᴀɴ ᴀɴɪᴍᴇ ʙᴀꜱᴇᴅ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ . [👋](https://telegra.ph/file/bde59c4e786d5f06d7b0e.mp4)
+PM_START_TEXT = "*ᴋᴏɴɪᴄʜɪᴡᴀ! {}!*\n۞ ɪᴍ ᴠɪᴄᴛᴏʀ \nᴀɴ ᴀɴɪᴍᴇ ʙᴀꜱᴇᴅ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ .
 ───────────────────────
 × *Aʟɪᴠᴇ Sɪɴᴄᴇ:* {}
 × {} *Wᴇᴇʙꜱ, Aᴄʀᴏꜱꜱ* {} *Cʜᴀᴛꜱ*
